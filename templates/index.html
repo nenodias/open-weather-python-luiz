@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>Conversor</title>
+        <link rel="stylesheet" type="text/css" href="/static/bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <script type="text/javascript" src="/static/bower_components/jquery/dist/jquery.js"></script>
+        <script type="text/javascript" src="/static/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    </head>
+    <body class="container">
+        <h1>Olá {{nome}}</h1>
+        <ul>
+            <li>O valor {{real}} se convertido em {{dolar}}</li>
+        </ul>
+        <form method="post" class="form">
+            <fieldset>
+                <legend>Conversor</legend>
+                <div class="form-group row">
+                    <label for="nome" class="col-xs-2 col-form-label">Nome:</label>
+                    <div class="col-xs-10">
+                        <input type="text" class="form-control" name="nome" placeholder="Digite seu nome" value="{{nome}}" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="dolar" class="col-xs-2 col-form-label">Dólar:</label>
+                    <div class="col-xs-10">
+                        <input type="text" class="form-control" name="dolar" placeholder="0.00" value="{{dolar}}" />
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-success">Converter</button>
+            </fieldset>
+        </form>
+    </body>
+</html>

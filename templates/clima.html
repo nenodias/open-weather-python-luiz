@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <title>Climas</title>
+        <link rel="stylesheet" type="text/css" href="/static/bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <script type="text/javascript" src="/static/bower_components/jquery/dist/jquery.js"></script>
+        <script type="text/javascript" src="/static/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    </head>
+    <body class="container">
+        {% if clima %}
+        <h1>
+            Clima em <strong>{{ cidade }}</strong>: {{ clima }}
+            <img src="http://openweathermap.org/img/w/{{icone}}.png" class="img-circle" />
+        </h1>
+        <hr />
+        <ul>
+            <li>
+                <strong>Temperatura: </strong>
+                {{ principal['temp'] }} °C
+            </li>
+            <li>
+                <strong>Máxima: </strong>
+                {{ principal['temp_max'] }} °C
+            </li>
+            <li>
+                <strong>Mínima: </strong>
+                {{ principal['temp_min'] }} °C
+            </li>
+            <li>
+                <strong>Pressão Atmosférica: </strong>
+                {{ principal['pressure'] }} hPa
+            </li>
+            <li>
+                <strong>Umidade: </strong>
+                {{ principal['humidity'] }} %
+            </li>
+            <li>
+                <strong>Ventos: </strong>
+                {{ vento['speed'] }} m/s
+            </li>
+            <li>
+                <strong>Nuvens: </strong>
+                {{ nuvem }} %
+            </li>
+        </ul>
+        {% endif %}
+        <form method="post" class="form">
+            <fieldset>
+                <legend>Clima</legend>
+                <div class="form-group row">
+                    <label for="nome" class="col-xs-2 col-form-label">Cidade:</label>
+                    <div class="col-xs-10">
+                        <input type="text" class="form-control" name="cidade" placeholder="Cidade..." value="{{cidade}}" />
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-success">Consultar</button>
+            </fieldset>
+        </form>
+    </body>
+</html>
