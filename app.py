@@ -31,14 +31,14 @@ def conversor():
 
 @app.route('/clima/', methods=['GET', 'POST'])
 def clima():
-    cidade = request.form.get('cidade')
+    cidade = request.form.get(u'cidade')
     contexto = {}
     if cidade:
         api = '9e4a5a3c085cb78c102490f9c614bb6c'
         unidade = 'metric'
         lingua = 'pt'
         try:
-            link = 'http://api.openweathermap.org/data/2.5/weather?q={cidade}&units={units}&APPID={api}&lang={lang}'
+            link = u'http://api.openweathermap.org/data/2.5/weather?q={cidade}&units={units}&APPID={api}&lang={lang}'
             url = link.format(api=api, cidade=cidade, units=unidade,lang=lingua)
             retorno = r.get(url)
             dados = retorno.json()
